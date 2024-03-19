@@ -16,3 +16,10 @@ def trap():
 @trap.route('/tape/recording', methods=['GET', 'POST'])
 def tape_recording():
     print ('Rise and shine' + name + 'this is a game. So many days you have wanted to die- today your aim is to live. To get get out of this room alive. Either way you win, yes? ')
+    response = input('do you want to continue?')
+    if response == 'yes':
+        return redirect('/game')
+
+@trap.route('/game', methods=['GET', 'POST'])
+def roll():
+    print ('you must roll the correct number three times')
