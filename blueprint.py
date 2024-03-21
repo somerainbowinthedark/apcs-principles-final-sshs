@@ -10,7 +10,7 @@ def trap():
 def trap():
     print ('Whats your name?')
     print ('My name is very ****ing confused!')
-    name= input('what is your name?')
+    name = input('what is your name?')
     return redirect('/tape/recoding')
 
 @trap.route('/tape/recording', methods=['GET', 'POST'])
@@ -23,3 +23,37 @@ def tape_recording():
 @trap.route('/game', methods=['GET', 'POST'])
 def roll():
     print ('you must roll the correct number three times')
+    return redirect('/round1')
+
+@trap.route('/round/one', methods=['GET', 'POST'])
+def roll_one():
+    random.randint(1, 10)
+    roll_one = roll()
+    if roll_one == 4:
+        print(roll_one)
+        print ('Congratulations, you have a second chance')
+        return redirect('/round/two')
+    else:
+        return redirect('/death')
+    
+@trap.route('/round/two', methods=['GET', 'POST'])
+def roll_two():
+    random.randint(1, 10)
+    roll_two = roll()
+    if roll_two == 6:
+        print(roll_two)
+        print ('Congratulations, will you be able to guess the last number now?')
+        return redirect('/round/three')
+    else:
+        return redirect('/death')
+    
+@trap.route('/round/three', methods=['GET', 'POST'])
+def roll_three():
+    random.randint(1, 10)
+    roll_three = roll()
+    if roll_three == 10:
+        print(roll_one)
+        print ('')
+        return redirect('/survival')
+    else:
+        return redirect('/death')
