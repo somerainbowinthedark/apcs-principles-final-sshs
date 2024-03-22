@@ -57,3 +57,16 @@ def roll_three():
         return redirect('/survival')
     else:
         return redirect('/death')
+
+@trap.route('/survival', methods=['GET', 'POST'])
+def live():
+    return()
+
+@trap.route('/death', methods=['GET', 'POST'])
+def die():
+    print('I am surprised by you' + name + '. You did what the knight couldnt do. You have murdered an innocent man...Game over.')
+    return redirect('/you/lose')
+
+@trap.route('/you/lose', methods=['GET', 'POST'])
+def serve_image():
+    return render_template('image.html')
