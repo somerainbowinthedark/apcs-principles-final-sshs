@@ -9,4 +9,4 @@ def make_app():
 # sets up the website
 if __name__ == '__main__':
     app = make_app()
-    app.run(host='localhost', port=8083, debug=True)
+    app.run(host='localhost', port=6969, debug=True)
